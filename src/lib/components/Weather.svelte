@@ -134,11 +134,15 @@
 				{:else}
 					<div class="flex h-full w-full">
 						<div class="flex flex-1 flex-col justify-center items-center">
-							<p class="font-semibold text-lg mb-4 pb-4 px-4 border-b text-center">
-								{getDayDescription(day.date)}
-							</p>
-							<p class="">High: {day.day.maxtemp_f.toFixed(0)}°F</p>
-							<p class="">Low: {day.day.mintemp_f.toFixed(0)}°F</p>
+							<div class="p-4 border-b h-[50%] flex justify-center items-end">
+								<p class="font-semibold text-lg text-center">
+									{getDayDescription(day.date)}
+								</p>
+							</div>
+							<div class="flex flex-col items-center justify-center h-[50%]">
+								<p class="">High: {day.day.maxtemp_f.toFixed(0)}°F</p>
+								<p class="">Low: {day.day.mintemp_f.toFixed(0)}°F</p>
+							</div>
 						</div>
 						<div class="flex flex-col justify-center items-center border rounded-md">
 							<img
