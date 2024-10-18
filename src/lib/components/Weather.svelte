@@ -5,6 +5,7 @@
 	let forecastData = null;
 	let error = null;
 	let intervalId;
+	let currentTime = new Date();
 
 	const fetchWeatherData = async () => {
 		const apiKey = import.meta.env.VITE_WEATHER_API_KEY;
@@ -25,7 +26,15 @@
 	onMount(() => {
 		fetchWeatherData();
 		intervalId = setInterval(fetchWeatherData, 15 * 30 * 1000);
-		return () => clearInterval(intervalId);
+
+		const timeUpdateInterval = setInterval(() => {
+			currentTime = new Date();
+		}, 60 * 1000);
+
+		return () => {
+			clearInterval(intervalId);
+			clearInterval(timeUpdateInterval);
+		};
 	});
 
 	onDestroy(() => {
@@ -55,8 +64,8 @@
 		}
 	};
 
-	const getNext6Hours = (hours) => {
-		const currentHour = new Date().getHours();
+	$: getNext6Hours = (hours) => {
+		const currentHour = currentTime.getHours();
 		return hours.filter((hourly) => {
 			const hourTime = new Date(hourly.time).getHours();
 			return hourTime > currentHour && hourTime < currentHour + 7;
@@ -113,11 +122,11 @@
 							</div>
 						</div>
 
-						<div class="flex flex-col justify-start items-center border rounded-md">
+						<div class="flex flex-col justify-center items-center border rounded-md">
 							<img
 								src={day.day.condition.icon}
 								alt={day.day.condition.text}
-								class="w-24 object-contain"
+								class="w-24 object-contain opacity-75"
 							/>
 							<p class="font-semibold text-sm text-wrap">{day.day.condition.text}</p>
 						</div>
@@ -131,11 +140,11 @@
 							<p class="">High: {day.day.maxtemp_f.toFixed(0)}°F</p>
 							<p class="">Low: {day.day.mintemp_f.toFixed(0)}°F</p>
 						</div>
-						<div class="flex flex-col justify-start items-center border rounded-md">
+						<div class="flex flex-col justify-center items-center border rounded-md">
 							<img
 								src={day.day.condition.icon}
 								alt={day.day.condition.text}
-								class="w-24 object-contain"
+								class="w-24 object-contain opacity-75"
 							/>
 							<p class="font-semibold text-sm text-wrap">{day.day.condition.text}</p>
 						</div>
