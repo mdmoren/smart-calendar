@@ -1,2 +1,35 @@
-<h1 class="font-bold">Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<script>
+	import MonthCalendar from '$lib/components/MonthCalendar.svelte';
+	import WeekCalendar from '$lib/components/WeekCalendar.svelte';
+	import Tasks from '$lib/components/Tasks.svelte';
+	import Weather from '$lib/components/Weather.svelte';
+	import Spotify from '$lib/components/Spotify.svelte';
+	import Media from '$lib/components/Media.svelte';
+	import Clock from '$lib/components/Clock.svelte';
+
+	export let data;
+</script>
+
+<div class="flex justify-center items-center w-full h-[100vh] p-8 space-x-4">
+	<!-- Month Calendar and Weather -->
+	<div class="flex flex-col w-[50%] h-full space-y-4">
+		<MonthCalendar />
+		<Weather />
+	</div>
+
+	<div class="flex w-[50%] h-full space-x-4">
+		<div class="flex flex-col w-[50%] h-full space-y-4">
+			<WeekCalendar />
+			{#if data.spotifyActive}
+				<Spotify />
+			{:else}
+				<Media />
+			{/if}
+		</div>
+
+		<div class="flex flex-col w-[50%] h-full space-y-4">
+			<Clock />
+			<Tasks />
+		</div>
+	</div>
+</div>
