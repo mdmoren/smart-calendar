@@ -88,7 +88,10 @@
 	};
 
 	const formatTime = (time) => {
-		const ftime = new Date(time).toLocaleTimeString([], { hour: '2-digit' });
+		const ftime = new Date(time).toLocaleTimeString([], {
+			hour: '2-digit',
+			hour12: true
+		});
 
 		if (ftime[0] === '0') {
 			return ftime.slice(1);
