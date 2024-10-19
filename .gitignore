@@ -25,14 +25,4 @@ spotify_tokens.json
 google_tokens.json
 
 # media
-*.mp4
-*.mov
-*.avi
-
-*.jpg
-*.jpeg
-*.png
-*.gif
-*.webp
-*.heif
-*.heic
+src/lib/backgrounds
