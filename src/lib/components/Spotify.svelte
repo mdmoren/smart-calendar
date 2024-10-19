@@ -25,8 +25,8 @@
 
 		<div class="flex justify-start items-center space-x-2">
 			<p class="text-lg text-[#ffffff80]">
-				Now Playing <span class=" italic font-semibold"
-					>{$device !== null ? ' on ' + $device.name : ''}</span
+				Now Playing on <span class=" italic font-semibold"
+					>{$device !== null ? $device.name : ''}</span
 				>
 			</p>
 			<MusicNote />
