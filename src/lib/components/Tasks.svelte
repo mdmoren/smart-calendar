@@ -10,7 +10,7 @@
 </script>
 
 <StyledContainer height={'80%'}>
-	<div class="flex flex-col w-full h-full relative">
+	<div class="flex flex-col w-full h-full">
 		<h2 class="text-3xl font-semibold text-center text-white mb-4">Tasks</h2>
 		{#if myTasks.length === 0}
 			<p class="text-white">No tasks found.</p>
@@ -40,10 +40,4 @@
 			</ul>
 		{/if}
 	</div>
-
-	<img
-		class="absolute w-40 h-40 z-30 -bottom-10 -right-4"
-		src="src/lib/misc/plant.webp"
-		alt="media"
-	/>
 </StyledContainer>

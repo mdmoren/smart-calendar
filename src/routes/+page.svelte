@@ -34,4 +34,11 @@
 			<Tasks />
 		</div>
 	</div>
+
+	<img
+		class="absolute w-40 h-40 z-30 bottom-1 -right-1"
+		src="src/lib/misc/plant.webp"
+		alt="media"
+	/>
+	<div class="absolute w-16 h-2 bg-black z-20 bottom-10 right-12 blur-sm"></div>
 </div>
