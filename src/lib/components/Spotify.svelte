@@ -8,8 +8,8 @@
 
 <StyledContainer height={'50%'} flexDirection={'column'} addTailwind={''}>
 	<div class="flex flex-col justify-evenly items-center w-full h-full">
-		<div class="flex p-4 bg-black bg-opacity-50 rounded-xl shadow-lg shadow-[#00000080] space-x-8">
-			<div class="overflow-hidden rounded-xl shadow-xl shadow-[#00000080] w-[50%]">
+		<div class="flex p-4 bg-black bg-opacity-50 rounded-md space-x-8">
+			<div class="overflow-hidden rounded-md w-[50%]">
 				<img src={$currentTrack.albumArt} alt="Album Art" class="w-full h-full" />
 			</div>
 

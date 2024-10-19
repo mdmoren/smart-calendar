@@ -140,15 +140,13 @@
 							</div>
 						</div>
 
-						<div
-							class="flex flex-col justify-center items-center bg-black bg-opacity-50 rounded-md"
-						>
+						<div class="flex flex-col justify-start items-center border-l">
 							<img
 								src={forecastData.current.condition.icon}
 								alt={forecastData.current.condition.text}
 								class="w-24 object-contain opacity-75"
 							/>
-							<p class="font-semibold text-sm text-wrap">{forecastData.current.condition.text}</p>
+							<p class="font-semibold text-wrap">{forecastData.current.condition.text}</p>
 						</div>
 					</div>
 				{:else}
@@ -164,9 +162,7 @@
 								<p class="">Low: {day.day.mintemp_f.toFixed(0)}°F</p>
 							</div>
 						</div>
-						<div
-							class="flex flex-col justify-center items-center bg-black bg-opacity-50 rounded-md"
-						>
+						<div class="flex flex-col justify-start items-center border-l">
 							<img
 								src={day.day.condition.icon}
 								alt={day.day.condition.text}
