@@ -50,5 +50,5 @@
 
 	<div class="absolute w-8 h-2 bg-black z-10 bottom-10 right-36 blur-sm"></div>
 
-	<img class="absolute w-24 h24 z-20 top-12 right-64" src="src/lib/misc/flower.webp" alt="media" />
+	<!-- <img class="absolute w-24 h24 z-20 top-12 right-64" src="src/lib/misc/flower.webp" alt="media" /> -->
 </div>
