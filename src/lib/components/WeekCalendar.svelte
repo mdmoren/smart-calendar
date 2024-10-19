@@ -46,6 +46,15 @@
 		<div class="flex justify-center items-center w-full h-[7%]">
 			<h2 class="text-3xl font-semibold text-center text-white">This Week</h2>
 		</div>
-		<FullCalendar {options} class="w-full  h-[93%]" />
+		{#if $filteredEventsStore.length > 0}
+			<FullCalendar {options} class="w-full  h-[93%]" />
+		{:else}
+			<div class="w-full h-full flex flex-col justify-center items-center relative">
+				<img class="w-84 h-84" src="src/lib/misc/greenhouse.webp" alt="media" />
+				<p class="text-white font-semibold text-xl absolute bottom-4 left=[50%]">
+					No upcoming events 😊
+				</p>
+			</div>
+		{/if}
 	</div>
 </StyledContainer>
