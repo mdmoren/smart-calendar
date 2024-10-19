@@ -140,7 +140,7 @@
 							</div>
 						</div>
 
-						<div class="flex flex-col justify-start items-center border-l">
+						<div class="flex flex-col justify-start items-center border-l pl-4">
 							<img
 								src={forecastData.current.condition.icon}
 								alt={forecastData.current.condition.text}
@@ -162,7 +162,7 @@
 								<p class="">Low: {day.day.mintemp_f.toFixed(0)}°F</p>
 							</div>
 						</div>
-						<div class="flex flex-col justify-start items-center border-l">
+						<div class="flex flex-col justify-start items-center border-l pl-4">
 							<img
 								src={day.day.condition.icon}
 								alt={day.day.condition.text}

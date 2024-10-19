@@ -41,4 +41,14 @@
 		alt="media"
 	/>
 	<div class="absolute w-16 h-2 bg-black z-20 bottom-10 right-12 blur-sm"></div>
+
+	<img
+		class="absolute w-40 h-40 z-20 bottom-11 right-20"
+		src="src/lib/misc/lilplant.webp"
+		alt="media"
+	/>
+
+	<div class="absolute w-8 h-2 bg-black z-10 bottom-10 right-36 blur-sm"></div>
+
+	<img class="absolute w-24 h24 z-20 top-12 right-64" src="src/lib/misc/flower.webp" alt="media" />
 </div>
