@@ -10,7 +10,9 @@
 	import { isPlaying } from '$lib/stores/spotify';
 </script>
 
-<div class="flex justify-center items-center w-full h-[100vh] p-8 space-x-4">
+<div
+	class="fixed top-0 left-0 z-20 flex justify-center items-center w-full h-[100vh] p-8 space-x-4"
+>
 	<!-- Month Calendar and Weather -->
 	<div class="flex flex-col w-[50%] h-full space-y-4">
 		<MonthCalendar />

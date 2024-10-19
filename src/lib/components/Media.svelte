@@ -11,5 +11,10 @@
 			<li>video - {$videoSrc}</li>
 			<li>media type - {$mediaType}</li>
 		</ul>
+		<img
+			class="object-cover h-full w-full z-30 rounded-lg shadow-lg"
+			src={$imageSrc}
+			alt="Background"
+		/>
 	</div>
 </StyledContainer>
