@@ -18,7 +18,7 @@
 			<ul>
 				{#each myTasks as task}
 					<li
-						class="mb-2 bg-black bg-opacity-50 px-4 py-2 rounded-xl space-x-3 flex justify-between items-center"
+						class="mb-2 bg-black bg-opacity-50 px-4 py-2 rounded-md space-x-3 flex justify-between items-center"
 					>
 						<div class="flex justify-start items-center space-x-2 text-white">
 							<div class="h-2 w-2 rounded-full bg-green-400 bg-opacity-50"></div>
