@@ -4,8 +4,14 @@
 	import { initializeMediaWebSocket, closeMediaWebSocket } from '$lib/webSockets/mediaClient';
 	import { initializeSpotifyWebSocket, closeSpotifyWebSocket } from '$lib/webSockets/spotifyClient';
 	import { fetchEvents, fetchTasks } from '$lib/hooks/google';
+	import { backgroundColor, imageSrc, videoSrc, mediaType } from '$lib/stores/media';
 
 	onMount(() => {
+		backgroundColor.set(localStorage.getItem('backgroundColor'));
+		imageSrc.set(localStorage.getItem('imageSrc'));
+		videoSrc.set(localStorage.getItem('videoSrc'));
+		mediaType.set(localStorage.getItem('mediaType'));
+
 		initializeMediaWebSocket();
 		initializeSpotifyWebSocket();
 

@@ -109,6 +109,20 @@ router.post('/color', (req, res) => {
     res.status(200).json({ status: 'success', message: 'Color Message sent to WebSocket clients' });
 });
 
+router.post('/toggle', (req, res) => {
+    const { backgroundType } = req.body;
+
+    
+    clients.forEach(client => {
+        if (client.readyState === WebSocket.OPEN) {
+            client.send(JSON.stringify({backgroundType: backgroundType}));
+        }
+    });
+
+    
+    res.status(200).json({ status: 'success', message: 'Toggle Message sent to WebSocket clients' });
+});
+
 
 let clients = [];
 

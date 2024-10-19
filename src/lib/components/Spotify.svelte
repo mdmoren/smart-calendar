@@ -21,17 +21,10 @@
 			</div>
 			<h3 class="text-lg font-bold text-wrap">{$currentTrack.name}</h3>
 			<p class="font-semi-bold">{$currentTrack.artist}</p>
-			{#if $isPlaying}
-				<div class="flex justify-start items-center space-x-2">
-					<p>Now Playing{$device !== null ? ' on ' + $device.name : ''}</p>
-					<MusicNote />
-				</div>
-			{:else}
-				<div class="flex justify-start items-center space-x-2">
-					<p>Paused</p>
-					<Paused />
-				</div>
-			{/if}
+			<div class="flex justify-start items-center space-x-2">
+				<p>Now Playing{$device !== null ? ' on ' + $device.name : ''}</p>
+				<MusicNote />
+			</div>
 		</div>
 	</div>
 
