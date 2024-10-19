@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  --fc-border-color: #ffffff80;
+  --fc-border-color: #ffffff40;
   --fc-daygrid-event-dot-width: 5px;
   --fc-today-bg-color: #ffffff40;
   --fc-neutral-bg-color: rgba(189, 189, 189, 0);
