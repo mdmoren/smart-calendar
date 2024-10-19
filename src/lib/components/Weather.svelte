@@ -18,6 +18,7 @@
 				throw new Error('Failed to fetch weather data');
 			}
 			forecastData = await response.json();
+			console.log(forecastData);
 		} catch (err) {
 			error = err.message;
 		}
@@ -64,12 +65,26 @@
 		}
 	};
 
-	$: getNext6Hours = (hours) => {
-		const currentHour = currentTime.getHours();
-		return hours.filter((hourly) => {
-			const hourTime = new Date(hourly.time).getHours();
-			return hourTime > currentHour && hourTime < currentHour + 7;
-		});
+	$: getNext6Hours = (forecastDays) => {
+		let result = [];
+
+		for (let i = 0; i < forecastDays.length; i++) {
+			const day = forecastDays[i];
+			const filteredHours = day.hour.filter((hourly) => {
+				const hourTime = new Date(hourly.time);
+				if (i === 0) {
+					return hourTime > currentTime;
+				}
+				return true;
+			});
+
+			result = [...result, ...filteredHours];
+			if (result.length >= 6) {
+				break;
+			}
+		}
+
+		return result.slice(0, 6);
 	};
 
 	const formatTime = (time) => {
@@ -89,10 +104,10 @@
 	</StyledContainer>
 {:else if forecastData}
 	<div class="flex justify-center items-stretch h-[20%] space-x-4">
-		{#each forecastData.forecast.forecastday as day}
+		{#each forecastData.forecast.forecastday as day, index}
 			<StyledContainer
 				height="100%"
-				addTailwind={`${getDayDescription(day.date) === 'Today' ? 'w-[50%]' : 'w-[25%]'} text-white space-x-4 relative`}
+				addTailwind={`${getDayDescription(day.date) === 'Today' ? 'w-[50%]' : 'w-[25%]'} text-white relative`}
 			>
 				{#if getDayDescription(day.date) === 'Today'}
 					<div class="flex h-full w-full space-x-4">
@@ -109,7 +124,7 @@
 							</div>
 
 							<div class="flex w-full items-center justify-center h-[50%] pt-4">
-								{#each getNext6Hours(day.hour) as hourly}
+								{#each getNext6Hours(forecastData.forecast.forecastday.slice(index)) as hourly}
 									<div
 										class="flex flex-col justify-center items-center border-r last:border-none px-4"
 									>
@@ -122,13 +137,15 @@
 							</div>
 						</div>
 
-						<div class="flex flex-col justify-center items-center border rounded-md">
+						<div
+							class="flex flex-col justify-center items-center bg-black bg-opacity-50 rounded-md"
+						>
 							<img
-								src={day.day.condition.icon}
-								alt={day.day.condition.text}
+								src={forecastData.current.condition.icon}
+								alt={forecastData.current.condition.text}
 								class="w-24 object-contain opacity-75"
 							/>
-							<p class="font-semibold text-sm text-wrap">{day.day.condition.text}</p>
+							<p class="font-semibold text-sm text-wrap">{forecastData.current.condition.text}</p>
 						</div>
 					</div>
 				{:else}
@@ -144,7 +161,9 @@
 								<p class="">Low: {day.day.mintemp_f.toFixed(0)}°F</p>
 							</div>
 						</div>
-						<div class="flex flex-col justify-center items-center border rounded-md">
+						<div
+							class="flex flex-col justify-center items-center bg-black bg-opacity-50 rounded-md"
+						>
 							<img
 								src={day.day.condition.icon}
 								alt={day.day.condition.text}

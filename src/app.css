@@ -1,3 +1,73 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --fc-border-color: #ffffff80;
+  --fc-daygrid-event-dot-width: 5px;
+  --fc-today-bg-color: #ffffff40;
+  --fc-neutral-bg-color: rgba(189, 189, 189, 0);
+  --fc-page-bg-color: #ffffff40;
+}
+
+.fc-event {
+    @apply bg-[#00000080] border border-[#00000080] p-1
+}
+
+.fc-event-time {
+    @apply text-white
+}
+
+.fc-event-title {
+    @apply text-white
+}
+
+.fc-col-header-cell-cushion, .fc-daygrid-day-number {
+    @apply text-white font-semibold
+}
+
+.fc-list-event {
+    @apply bg-[#00000080]
+}
+
+.fc-list-event-title, .fc-list-event-time {
+    @apply text-white
+}
+
+.fc-list-day-text, .fc-list-day-side-text {
+    @apply text-black
+}
+
+.fc-toolbar-title {
+    @apply font-semibold text-white
+}
+
+.fc .fc-list-sticky .fc-list-day {
+    @apply bg-opacity-50
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+* {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+/* Optional: Ensure elements can still scroll */
+* {
+    overflow: auto;
+}
+
+/* Optional: Reset for specific elements if needed */
+.show-scrollbar::-webkit-scrollbar {
+    display: initial;
+}
+
+.show-scrollbar {
+    -ms-overflow-style: initial;
+    scrollbar-width: initial;
+}
