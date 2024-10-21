@@ -131,7 +131,7 @@
 									<div
 										class="flex flex-col justify-center items-center border-r last:border-none px-4"
 									>
-										<p class="text-lg">{hourly.temp_f.toFixed(0) + ' °F'}</p>
+										<p class="">{hourly.temp_f.toFixed(0) + ' °F'}</p>
 										<p class="text-sm font-semibold">
 											{formatTime(hourly.time)}
 										</p>
